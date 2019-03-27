@@ -9,17 +9,24 @@
 
 int main(void)
 {
-    char * c_says = "hello";
-    char * p_says = "goodbye";
+    // initialize character pointer child and assign the value of the string "hello"
+    char *child = "hello";
+    // initialize character pointer parent and assign the value of the string "goodbye"
+    char *parent = "goodbye";
 
+    // initialize pid_t pointer pid and assign the value of the system call fork()
     pid_t pid = fork();
 
-    if (pid != 0){
+    // if fork() is not equal to 0
+    if (pid != 0)
+    {
+        // initialize an integer wc and assign the value of the system call waitpid()
         int wc = waitpid(pid, NULL, 0);
-        printf("Parent says, %s\n", p_says);
-        
-    } else{
-        printf("Child says, %s\n", c_says);
+        printf("Parent prints, %s\n", parent);
+    }
+    else
+    {
+        printf("Child prints, %s\n", child);
     }
 
     return 0;
