@@ -21,6 +21,7 @@ int main(void)
     if (pid != 0)
     {
         // initialize an integer wc and assign the value of the system call waitpid()
+        // to ensure that the child process always prints first
         int wc = waitpid(pid, NULL, 0);
         printf("Parent prints, %s\n", parent);
     }
